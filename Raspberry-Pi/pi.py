@@ -24,13 +24,12 @@ def Msg(channel):
 
 def callback(audio):
     if GPIO.input(audio):
-      print "High"
-    else:
-      print "High"
+      print("High")
+      time.sleep(5)
       
 GPIO.add_event_detect(audio, GPIO.BOTH, bouncetime=300)
 GPIO.add_event_callback(audio, callback)
-GPIO.add_event_callback(channel, Msg)
+GPIO.add_event_callback(audio, Msg)
 
 while True:
   time.sleep(1)
